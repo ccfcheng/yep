@@ -10,18 +10,26 @@
 
   <body ng-controller="MainController">
     <h1>Yep! The easier way to <img src="assets/yelp_logo_100x50.png"></h1>
-      <div>What do you want to eat? {{ category_filter }}</div>
-      <span ng-click="setCategory('newamerican')"> American (New) </span>
-      <span ng-click="setCategory('indpak')"> Indian </span>
-      <span ng-click="setCategory('japanese')"> Japanese </span>
-      <span ng-click="setCategory('mexican')"> Mexican </span>
+    <div>What do you want to eat? {{ category_filter }}</div>
+    <span ng-click="setCategory('newamerican')"> American (New) </span>
+    <span ng-click="setCategory('indpak')"> Indian </span>
+    <span ng-click="setCategory('japanese')"> Japanese </span>
+    <span ng-click="setCategory('mexican')"> Mexican </span>
 
-      <div>Where are you right now?</div>
-      <input type="text" ng-model="restaurantLocation" placeholder="Enter an address for more exact results, or your city for more general results">
-      <div>Do you want to walk or drive?</div>
-      <input type="text" ng-model="distance" placeholder="(1600m is 1 mile, max is 40000m)">
+    <div>Where are you right now? {{ searchLocation }}</div>
+    <input type="text" ng-model="currentLocation" ng-change="setLocation()" placeholder="Enter an address for more exact results, or your city for more general results">
+    <div>Do you want to walk or drive? {{ radius_filter }}</div>
+    <span ng-click="setRadius(0.5)"> Walk </span>
+    <span ng-click="setRadius(5)"> Drive </span>
+    <div>
+      <button ng-click"submitBasic()">Submit</button>
+      Check for Advanced Search Mode: <input type="checkbox" ng-model="advancedSearch" ng-init="advancedSearch=false">
+    </div>
+    <div ng-if="advancedSearch">
       <div>At least this many stars:</div>
       <input type="text" ng-model="distance" placeholder="e.g. 3.5, 4, 5...">
+      <div>How many miles are you willing to go? {{ radius_filter }}</div>
+      <input type="text" ng-model="distance" ng-change="setRadius()" placeholder="(1600m is 1 mile, max is 40000m)">
     </div>
   </body>
 </html>

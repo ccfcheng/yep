@@ -17,12 +17,10 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  Yep
+  > Yep! - The Better Way To Yelp!
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-  Take the choice paralysis out of Yelp and let our app decide for you!
+  > Take the choice paralysis out of Yelp and let our app decide for you!
 
 ## Summary ##
   > It's Friday night. You and your significant other are looking forward to a night out after a long work week. You turn to Yelp!
@@ -31,25 +29,22 @@ Once the project moves into development, the press release can be used as a touc
   a vague sense of irritation at each other. Don't let this be you. Take the gueswork out of Yelp with the brand new Yep!
 
 ## Problem ##
-  > Describe the problem your product solves.
-  Too many restaurant choices that pop up on Yelp make it hard to actually decide on one. We pare that down 
-
+  > Too many restaurant choices that pop up on Yelp make it hard to actually decide on one. We spend more time reading reviews 
+  and sample menus on Yelp than actually deciding to go to a restaurant.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Rather than giving you 20 PAGES of results when you want a restaurant, you give just a few options and we give you two or 
+  three random results that you can live with!
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
-  "Life is too short to waste it talking about where you're going to eat. Go eat there instead, with Yep!"
+  > "Life is too short to waste it talking about where you're going to eat. Go eat there instead, with Yep!" - Cliff Saporta Cheng, CEO
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Just click on what you want to eat and how much you want to spend, and we'll tell you where to go!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-  "My marriage was on the rocks until I found YEP! Now we sit in restaurants and grin smugly at passer-bys as they scroll 
-  desperately through their 18 pages of Yelp reviews!"
+  > "My marriage was on the rocks until I found YEP! Now we sit in restaurants and grin smugly at passer-bys as they scroll 
+  desperately through their 18 pages of Yelp reviews!" - Nic Cage, Yep! user
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
-  Check out a working demo of our product at ccfcheng.github.io/2015-06-solo
+  > Check out a working demo of our product at ccfcheng.github.io/2015-06-solo

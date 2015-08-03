@@ -9,37 +9,27 @@ yep.controller('MainController', function($scope, Search) {
   
   $scope.category_filter = '';
   $scope.searchLocation = '';
-  $scope.radius_filter;
-  
-  // $scope.advancedSearch = true;
-
-  // $scope.toggleAdvancedMode = function() {
-
-  //   $scope.advancedSearch = !$scope.advancedSearch;
-  // };
+  $scope.radius_filter = '';
 
 })
 
 .factory('Search', function(){
   return {
-    // toggleAdvancedMode: function() {
-    //   if (this.advancedSearch) {
-    //     this.advancedSearch = false;
-    //   } else {
-    //     this.advancedSearch = true;
-    //   }
-    // },
-
+    // appends a category term to Yelp's category search syntax
     setCategory: function(term) {
       this.category_filter = 'category_filter=' + term;
     },
-
+    // appends a location term to Yelp's location search syntax
     setLocation: function() {
       this.searchLocation = 'location=' + this.currentLocation;
     },
-
+    // appends a radius term to Yelp's radius search syntax, automatically converts miles to meters
     setRadius: function(miles) {
       this.radius_filter = 'radius_filter=' + (miles * 800); 
+    },
+
+    setQuery: function() {
+
     }
 
   };

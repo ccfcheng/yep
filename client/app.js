@@ -1,3 +1,5 @@
+// var OAuth = require('oauth-1.0a');
+
 var yep = angular.module('yep', []);
 
 yep.controller('MainController', function($scope, Search) {

@@ -1,4 +1,5 @@
-# Yep! #
+# Project Name #
+  > Yep!
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -16,36 +17,35 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## The Better Way To Yelp! ##
-  >  
+## Heading ##
+  > The Better Way To Yelp!
 
-## Take the choice paralysis out of Yelp and let our app decide for you! ##
-  > 
+## Sub-Heading ##
+  > Take the choice paralysis out of Yelp and let our app decide for you!
 
-## It's Friday night. You and your significant other are looking forward to a night out after a long work week. You turn to Yelp!
+## Summary ##
+  > It's Friday night. You and your significant other are looking forward to a night out after a long work week. You turn to Yelp!
   and you're instantly inundated with countless restaurant options. The two of you end up spending two hours unable to decide, 
   finally winding up on the couch together with a giant bowl of popcorn, watching a rerun of Real Housewives of New Jersey with 
-  a vague sense of irritation at each other. Don't let this be you. Take the gueswork out of Yelp with the brand new Yep! ##
-  > 
+  a vague sense of irritation at each other. Don't let this be you. Take the gueswork out of Yelp with the brand new Yep!
 
-## Too many restaurant choices that pop up on Yelp make it hard to actually decide on one. We spend more time reading reviews 
-  and sample menus on Yelp than actually deciding to go to a restaurant. ##
-  > 
+## Problem ##
+  > Too many restaurant choices that pop up on Yelp make it hard to actually decide on one. We spend more time reading reviews 
+  and sample menus on Yelp than actually deciding to go to a restaurant.
 
-## Rather than giving you 20 PAGES of results when you want a restaurant, you give just a few options and we give you two or 
-  three random results that you can live with! ##
-  > 
+## Solution ##
+  > Rather than giving you 20 PAGES of results when you want a restaurant, you give just a few options and we give you two or 
+  three random results that you can live with!
 
-## "Life is too short to waste it talking about where you're going to eat. Go eat there instead, with Yep!" 
-- Cliff Saporta Cheng, CEO ##
-  > 
+## From the founder ##
+  > "Life is too short to waste it talking about where you're going to eat. Go eat there instead, with Yep!" - Cliff Saporta Cheng, CEO
 
-## Just click on what you want to eat and how much you want to spend, and we'll tell you where to go! ##
-  > 
+## Getting Started ##
+  > Just click on what you want to eat and how much you want to spend, and we'll tell you where to go!
 
-## "My marriage was on the rocks until I found YEP! Now we sit in restaurants and grin smugly at passer-bys as they scroll 
-  desperately through their 18 pages of Yelp reviews!" - Nic Cage, satisfied Yep! user ##
-  > 
+## Customer Quote ##
+  > "My marriage was on the rocks until I found YEP! Now we sit in restaurants and grin smugly at passer-bys as they scroll 
+  desperately through their 18 pages of Yelp reviews!" - Nic Cage, satisfied Yep! user
 
-## Check out a working demo of our product at ccfcheng.github.io/2015-06-solo ##
-  > 
+## Closing and Call to Action ##
+  > Check out a working demo of our product at ccfcheng.github.io/2015-06-solo

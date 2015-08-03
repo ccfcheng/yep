@@ -10,6 +10,7 @@ yep.controller('MainController', function($scope, Search) {
   $scope.category_filter = '';
   $scope.searchLocation = '';
   $scope.radius_filter = '';
+  $scope.query = '';
 
 })
 
@@ -27,9 +28,9 @@ yep.controller('MainController', function($scope, Search) {
     setRadius: function(miles) {
       this.radius_filter = 'radius_filter=' + (miles * 800); 
     },
-
+    // concatenates all appropriate terms to form a Yelp search query
     setQuery: function() {
-
+      this.query = '?' + this.searchLocation + '&sort=2&' + this.radius_filter + '&' + this.category_filter;
     }
 
   };

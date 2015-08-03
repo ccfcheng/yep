@@ -22,7 +22,8 @@
     <span ng-click="setRadius(0.5)"> Walk </span>
     <span ng-click="setRadius(5)"> Drive </span>
     <div>
-      <button ng-click"submitBasic()">Submit</button>
+      <span>Search Query: {{ query }}</span><br>
+      <button ng-click="setQuery()">Submit</button>
       Check for Advanced Search Mode: <input type="checkbox" ng-model="advancedSearch" ng-init="advancedSearch=false">
     </div>
     <div ng-if="advancedSearch">

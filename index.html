@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-
+<html ng-app="yep">
   <head>
     <script src="lib/angular.min.js"></script>
+    <script src="lib/underscore-min.js"></script>
     <script src="client/app.js"></script>
-    <title>Yep! - The Better Way To Yelp!</title>
+    <title>Yep!</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
   </head>
 
-  <body>Hello World</body>
+  <body ng-controller="MainController">
+    <h1>Yep! The easier way to <img src="assets/yelp_logo_100x50.png"></h1>
+      <div>Enter a type of restaurant:</div>
+      <input type="text" ng-model="restaurantType" placeholder="Sushi, Mexican, Ethiopian...">
+      <div>Enter a location:</div>
+      <input type="text" ng-model="restaurantLocation" placeholder="San Francisco, CA...">
+      <div>Enter a search radius in meters:</div>
+      <input type="text" ng-model="distance" placeholder="(1600m is 1 mile, max is 40000m)">
+      <div>At least this many stars:</div>
+      <input type="text" ng-model="distance" placeholder="e.g. 3.5, 4, 5...">
+    </div>
+  </body>
 </html>

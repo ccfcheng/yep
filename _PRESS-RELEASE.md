@@ -48,4 +48,4 @@ Once the project moves into development, the press release can be used as a touc
   desperately through their 18 pages of Yelp reviews!" - Nic Cage, satisfied Yep! user
 
 ## Closing and Call to Action ##
-  > Check out a working demo of our product at ccfcheng.github.io/2015-06-solo
+  > Check out a working demo of our product at ccfcheng.github.io/yep

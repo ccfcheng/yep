@@ -2,9 +2,14 @@ var yep = angular.module('yep', []);
 
 yep.controller('MainController', function($scope, Search) {
   angular.extend($scope, Search);
-  // $scope.searchTerm = 'hello';
+  // this string represents valid Yelp restaurant categories
+  $scope.category_filter = '';
 })
 
 .factory('Search', function(){
-  return {};
+  return {
+    setCategory: function(term) {
+      this.category_filter = term;
+    }
+  };
 });

@@ -18,27 +18,38 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Yep
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Take the choice paralysis out of Yelp and let our app decide for you!
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > It's Friday night. You and your significant other are looking forward to a night out after a long work week. You turn to Yelp!
+  and you're instantly inundated with countless restaurant options. The two of you end up spending two hours unable to decide, 
+  finally winding up on the couch together with a giant bowl of popcorn, watching a rerun of Real Housewives of New Jersey with 
+  a vague sense of irritation at each other. Don't let this be you. Take the gueswork out of Yelp with the brand new Yep!
 
 ## Problem ##
   > Describe the problem your product solves.
+  Too many restaurant choices that pop up on Yelp make it hard to actually decide on one. We pare that down 
+
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  "Life is too short to waste it talking about where you're going to eat. Go eat there instead, with Yep!"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "My marriage was on the rocks until I found YEP! Now we sit in restaurants and grin smugly at passer-bys as they scroll 
+  desperately through their 18 pages of Yelp reviews!"
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  Check out a working demo of our product at ccfcheng.github.io/2015-06-solo

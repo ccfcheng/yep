@@ -1,0 +1,22 @@
+{
+  "name": "2015-06-solo",
+  "version": "1.0.0",
+  "description": "HR Solo MVP Project - Yep!",
+  "main": "search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccfcheng/2015-06-solo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccfcheng/2015-06-solo/issues"
+  },
+  "homepage": "https://github.com/ccfcheng/2015-06-solo#readme",
+  "dependencies": {
+    "oauth-1.0a": "^0.2.1"
+  }
+}

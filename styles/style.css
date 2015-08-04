@@ -1,18 +1,22 @@
-body {
+/*body {
   background-color: #999;
 }
 
 .searchArea {
-  background-color: #ccc
+  background-color: #ccc;
 }
 
 .display {
   background-color: #eee;
-}
+}*/
 
 .pure-img {
   width: 40%;
   margin: 10px auto;
+}
+
+.selected, .transportation {
+  background-color: #ccc;
 }
 
 .heading {
@@ -31,8 +35,13 @@ div {
   font-weight: bold;
 }
 
-.picture, .phone {
+.picture, .phone, .center {
   text-align: center;
+}
+
+.center {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .address {

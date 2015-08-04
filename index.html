@@ -52,14 +52,18 @@
         <div class="pure-g">
           <hr class="pure-u-1">
           <div class="pure-u-1 name">{{ item.name }}</div>
-          <div class="pure-u-1 picture"><img ng-src="{{ item.imageURL }}"></div>
-          <div class="pure-u-1 snippet">{{ item.snippet }}</div>
-          <div class="pure-u-1"><a ng-href="tel://{{item.phone}}">{{ item.phone }}</a></div>
-          <div class="pure-u-1 reviews">{{ item.reviews }} reviews</div>
-          <div class="pure-u-1 picture"><img ng-src="{{ item.ratingURL }}"></div>
-          <a ng-href="https://www.google.com/maps/dir/{{ searchLocation }}/{{ item.address.join(' ') }}">
-            <div class="pure-u-1" ng-repeat="line in item.address">{{ line }}</div>
-          </a>
+          <div class="pure-u-2-5 picture"><img ng-src="{{ item.imageURL }}"></div>
+          <div class="pure-u-3-5">
+            <div class="reviews">{{ item.reviews }} reviews</div>
+            <div class="picture"><img ng-src="{{ item.ratingURL }}"></div>
+            <div class="phone"><a ng-href="tel://{{item.phone}}">{{ item.phone }}</a></div>
+          </div>
+          <div class="pure-u-1 pure-u-sm-2-5 address">
+            <a ng-href="https://www.google.com/maps/dir/{{ searchLocation }}/{{ item.address.join(' ') }}">
+              <div ng-repeat="line in item.address">{{ line }}</div>
+            </a>
+          </div>
+          <div class="pure-u-1 pure-u-sm-3-5 snippet">{{ item.snippet }}</div>
         </div>
       </div>
     </div>

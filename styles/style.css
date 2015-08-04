@@ -22,8 +22,8 @@ body {
 }
 
 div {
-  word-wrap: break-word;
-  font-size: 2.9vmax;
+/*  word-wrap: break-word;*/
+  font-size: 2.7vmax;
 }
 
 .name {
@@ -31,12 +31,17 @@ div {
   font-weight: bold;
 }
 
-.picture {
+.picture, .phone {
   text-align: center;
+}
+
+.address {
+  text-align: left;
 }
 
 .snippet {
   font-style: italic;
+  text-aling: right;
 }
 
 .reviews {

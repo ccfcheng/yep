@@ -2,14 +2,24 @@ body {
   background-color: #999;
 }
 
-.left {
-  width: 35%;
-  float: left;
+.searchArea {
   background-color: #ccc
 }
 
-.right {
-  width: 65%;
-  float: right;
+.display {
   background-color: #eee;
+}
+
+.pure-img {
+  width: 50%;
+  margin: auto;
+}
+
+.pure-u-1-6 {
+  text-align: center;
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 1.25em;
 }

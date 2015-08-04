@@ -23,6 +23,10 @@ yep.controller('MainController', function($scope, Search, Yelp) {
           .error(function(err){console.log('error', err);});
   };
 
+  $scope.invalidSubmission = function() {
+    return !$scope.category_filter || !$scope.searchLocation || !$scope.radius_filter;
+  };
+
 })
 
 .factory('Search', function(){

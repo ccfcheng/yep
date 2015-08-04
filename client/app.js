@@ -4,14 +4,23 @@ yep.controller('MainController', function($scope, Search, Yelp) {
   angular.extend($scope, Search);
   angular.extend($scope, Yelp);
   // this string represents valid Yelp restaurant categories
-  $scope.categoryHash = {
-
-  };
+  $scope.restaurants = [];
   
   $scope.category_filter = '';
   $scope.searchLocation = '';
   $scope.radius_filter = '';
   $scope.query = '';
+
+  $scope.queryYelp = function() {
+    var Results = this.retrieve();
+    Results.success(function(data){
+              for (var i = 0; i < data.businesses.length; i++) {
+                $scope.parseYelp(data.businesses[i]);
+              }
+              console.log($scope.restaurants);
+            })
+          .error(function(err){console.log('error', err);});
+  };
 
 })
 
@@ -41,6 +50,21 @@ yep.controller('MainController', function($scope, Search, Yelp) {
 
 .factory('Yelp', function($http){
   return {
+
+    parseYelp: function(business) {
+      var obj = {
+        name: business.name,
+        imageURL: business.image_url,
+        reviews: business.review_count,
+        rating: business.rating,
+        ratingURL: business.rating_img_url,
+        address: business.location.display_address
+        // http://maps.google.com/?q=term (term should be address.join(' '))
+      };
+      this.restaurants.push(obj);
+      // console.log(obj.address);
+    },
+
     randomGen: function(length) {
       var source = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       var counter = 0;
@@ -53,39 +77,7 @@ yep.controller('MainController', function($scope, Search, Yelp) {
       return result;
     },
 
-    // retrieve: function(name, callback) {
-    //   var method = 'GET';
-    //   var url = this.setQuery();
-    //   var params = {
-    //     callback: 'angular.callbacks._0',
-    //     oauth_consumer_key: 'TsnPAO-_aWxaIOg9pINODA',
-    //     oauth_token: 'rP2sTwBPe2fK8JMnYSx7megW5C4EmJKw',
-    //     oauth_signature_method: 'HMAC-SHA1',
-    //     oauth_timestamp: new Date().getTime(),
-    //     oauth_nonce: this.randomGen(32), 
-    //     category_filter: this.category_filter,
-    //     location: this.searchLocation,
-    //     radius_filter: this.radius_filter
-    //   };
-    //   var consumerSecret = 'lIppVhaecKJLupkZ1hoj_iXp70E';
-    //   var tokenSecret = '2Zri1ev2NoRkoQw9GCpDh1VFqFI';
-    //   var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
-    //   params.oauth_signature = signature;
-    //   console.log(params);
-    //   $http({
-    //     method: 'GET',
-    //     url: 'http://api.yelp.com/v2/search',
-    //     params: params,
-    //   })
-    //   .success(function(data){
-    //     console.log('success!',data);
-    //   })
-    //   .error(function(err){
-    //     console.log('error!:',err);
-    //   });
-
-    // Test from StackOverflow
-    retrieve: function(name, callback) {
+    retrieve: function() {
       var method = 'GET';
       var url = 'http://api.yelp.com/v2/search';
       var params = {
@@ -103,27 +95,9 @@ yep.controller('MainController', function($scope, Search, Yelp) {
       var tokenSecret = '2Zri1ev2NoRkoQw9GCpDh1VFqFI'; //Token Secret
       var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
       params.oauth_signature = signature;
-      console.log(params);
-      $http.jsonp(url, {params: params})
-        .success(function(data){console.log('success', data);})
-        .error(function(err){console.log('error', err);});
-      
-
-      // $http.jsonp('http://api.yelp.com/v2/search', {params:params})
-      //   .success(function(data){
-      //     console.log('success!',data);
-      //   })
-      //   .error(function(err){
-      //     console.log('error!:',err);
-      //   });
-      // $http.get('http://www.reddit.com/.json')
-      //   .success(function(data){ 
-      //     var array = data.data.children;
-      //     _.each(array, function(item){
-      //       console.log('subreddit:', item.data.subreddit);
-      //     }); 
-      //   })
-      //   .error(function(){ console.log('error!'); });
+      // console.log(params);
+      return $http.jsonp(url, {params: params});
     }
+
   };
 });

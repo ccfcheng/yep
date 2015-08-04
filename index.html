@@ -12,27 +12,40 @@
 
   <body ng-controller="MainController">
     <h1>Yep! The easier way to <img src="assets/yelp_logo_100x50.png"></h1>
-    <div ng-init="category_filter = 'japanese'">What do you want to eat? {{ category_filter }}</div>
-    <span ng-click="setCategory('newamerican')"> American (New) </span>
-    <span ng-click="setCategory('indpak')"> Indian </span>
-    <span ng-click="setCategory('japanese')"> Japanese </span>
-    <span ng-click="setCategory('mexican')"> Mexican </span>
+    <div class="left">
+      <div ng-init="category_filter = 'japanese'">What do you want to eat? {{ category_filter }}</div>
+      <span ng-click="category_filter = 'newamerican'"> American (New) </span>
+      <span ng-click="category_filter = 'indpak'"> Indian </span>
+      <span ng-click="category_filter = 'japanese'"> Japanese </span>
+      <span ng-click="category_filter = 'mexican'"> Mexican </span>
 
-    <div ng-init="searchLocation = 'Sacramento, CA'">Where are you right now? {{ searchLocation }}</div>
-    <input type="text" ng-model="currentLocation" ng-change="setLocation()" placeholder="Enter an address for more exact results, or your city for more general results">
-    <div ng-init="radius_filter = '4000'">Do you want to walk or drive? {{ radius_filter }}</div>
-    <span ng-click="setRadius(0.5)"> Walk </span>
-    <span ng-click="setRadius(5)"> Drive </span>
-    <div>
-      <span>Search Query: {{ query }}</span><br>
-      <button ng-click="retrieve()">Submit</button>
-      Check for Advanced Search Mode: <input type="checkbox" ng-model="advancedSearch" ng-init="advancedSearch=false">
+      <div ng-init="searchLocation = '2600 3rd Avenue, Sacramento, CA'">Where are you right now? {{ searchLocation }}</div>
+      <input type="text" ng-model="searchLocation" placeholder="Enter an address for more exact results, or your city for more general results">
+      <div ng-init="radius_filter = '4000'">Do you want to walk or drive? {{ radius_filter }}</div>
+      <span ng-click="setRadius(0.5)"> Walk </span>
+      <span ng-click="setRadius(5)"> Drive </span>
+      <div>
+        <span>Search Query: {{ query }}</span><br>
+        <button ng-click="queryYelp()">Submit</button>
+      </div>
     </div>
-    <div ng-if="advancedSearch">
+    <div class="right">
+      <div ng-repeat="item in restaurants">
+        <div>{{ item.name }}</div>
+        <div><img ng-src="{{ item.imageURL }}"></div>
+        <div>{{ item.reviews }} reviews</div>
+        <div><img ng-src="{{ item.ratingURL }}"></div>
+        <a ng-href="https://www.google.com/maps/dir/{{ searchLocation }}/{{ item.address.join(' ') }}">
+          <div ng-repeat="line in item.address">{{ line }}</div>
+        </a>
+      </div>
+    </div>
+    <!-- <div ng-if="advancedSearch">
+      Check for Advanced Search Mode: <input type="checkbox" ng-model="advancedSearch" ng-init="advancedSearch=false">
       <div>At least this many stars:</div>
       <input type="text" ng-model="distance" placeholder="e.g. 3.5, 4, 5...">
       <div>How many miles are you willing to go? {{ radius_filter }}</div>
       <input type="text" ng-model="distance" ng-change="setRadius()" placeholder="(1600m is 1 mile, max is 40000m)">
-    </div>
+    </div> -->
   </body>
 </html>

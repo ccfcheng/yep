@@ -15,9 +15,11 @@
     <div class="left">
       <div ng-init="category_filter = 'japanese'">What do you want to eat? {{ category_filter }}</div>
       <span ng-click="category_filter = 'newamerican'"> American (New) </span>
-      <span ng-click="category_filter = 'indpak'"> Indian </span>
+      <span ng-click="category_filter = 'italian'"> Italian </span>
       <span ng-click="category_filter = 'japanese'"> Japanese </span>
       <span ng-click="category_filter = 'mexican'"> Mexican </span>
+      <span ng-click="category_filter = 'vegetarian'"> Vegetarian </span>
+      <span ng-click="category_filter = 'breakfast_brunch'"> Brunch </span>
 
       <div ng-init="searchLocation = '2600 3rd Avenue, Sacramento, CA'">Where are you right now? {{ searchLocation }}</div>
       <input type="text" ng-model="searchLocation" placeholder="Enter an address for more exact results, or your city for more general results">
@@ -30,9 +32,10 @@
       </div>
     </div>
     <div class="right">
-      <div ng-repeat="item in restaurants">
+      <div ng-repeat="item in curatedList">
         <div>{{ item.name }}</div>
         <div><img ng-src="{{ item.imageURL }}"></div>
+        <div>{{ item.snippet }}</div>
         <div>{{ item.reviews }} reviews</div>
         <div><img ng-src="{{ item.ratingURL }}"></div>
         <a ng-href="https://www.google.com/maps/dir/{{ searchLocation }}/{{ item.address.join(' ') }}">

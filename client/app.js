@@ -5,6 +5,7 @@ yep.controller('MainController', function($scope, Search, Yelp) {
   angular.extend($scope, Yelp);
   // this string represents valid Yelp restaurant categories
   $scope.restaurants = [];
+  $scope.curatedList = [];
   
   $scope.category_filter = '';
   $scope.searchLocation = '';
@@ -14,10 +15,10 @@ yep.controller('MainController', function($scope, Search, Yelp) {
   $scope.queryYelp = function() {
     var Results = this.retrieve();
     Results.success(function(data){
-              for (var i = 0; i < data.businesses.length; i++) {
-                $scope.parseYelp(data.businesses[i]);
-              }
+              data.businesses.forEach($scope.parseYelp, $scope);
+              $scope.curatedList = $scope.chooseThree($scope.restaurants);
               console.log($scope.restaurants);
+              console.log($scope.curatedList);
             })
           .error(function(err){console.log('error', err);});
   };
@@ -51,17 +52,28 @@ yep.controller('MainController', function($scope, Search, Yelp) {
 .factory('Yelp', function($http){
   return {
 
+    chooseThree: function(array) {
+      var result = [];
+      while (result.length < 3) {
+        var i = Math.floor(Math.random() * array.length);
+        result.push(array.splice(i,1)[0]);
+      }
+      return result;
+    },
+
     parseYelp: function(business) {
       var obj = {
         name: business.name,
         imageURL: business.image_url,
+        snippet: business.snippet_text,
         reviews: business.review_count,
         rating: business.rating,
         ratingURL: business.rating_img_url,
         address: business.location.display_address
         // http://maps.google.com/?q=term (term should be address.join(' '))
       };
-      this.restaurants.push(obj);
+      // only push to array if 3.5 stars and above
+      if (obj.rating >= 3.5) { this.restaurants.push(obj); }
       // console.log(obj.address);
     },
 

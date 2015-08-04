@@ -16,10 +16,49 @@ body {
 }
 
 .heading {
+  text-align: center;
   font-weight: bold;
   font-size: 1.1em;
 }
 
 div {
   word-wrap: break-word;
+  font-size: 2.9vmax;
 }
+
+.name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.picture {
+  text-align: center;
+}
+
+.snippet {
+  font-style: italic;
+}
+
+.reviews {
+  text-align: center;
+  font-weight: bold;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*h1 {
+  font-size: 5.9vw;
+}*/
+h2 {
+  font-size: 3.9vmax;
+}
+/*p {
+  font-size: 2vmin;
+}*/

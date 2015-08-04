@@ -69,6 +69,7 @@ yep.controller('MainController', function($scope, Search, Yelp) {
       var obj = {
         name: business.name,
         imageURL: business.image_url,
+        phone: business.display_phone,
         snippet: business.snippet_text,
         reviews: business.review_count,
         rating: business.rating,

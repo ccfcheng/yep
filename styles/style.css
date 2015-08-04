@@ -11,15 +11,15 @@ body {
 }
 
 .pure-img {
-  width: 50%;
-  margin: auto;
+  width: 40%;
+  margin: 10px auto;
 }
 
-.pure-u-1-6 {
+/*.pure-u-1-6 {
   text-align: center;
-}
+}*/
 
 .heading {
   font-weight: bold;
-  font-size: 1.25em;
+  font-size: 1.1em;
 }

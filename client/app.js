@@ -1,12 +1,14 @@
 var yep = angular.module('yep', []);
 
-yep.controller('MainController', function($scope, Search, Yelp) {
+yep.controller('MainController', function($scope, $window, Search, Yelp) {
   angular.extend($scope, Search);
   angular.extend($scope, Yelp);
   // this string represents valid Yelp restaurant categories
   $scope.restaurants = [];
   $scope.curatedList = [];
   
+  $scope.onSearchView = true;
+
   $scope.category_filter = '';
   $scope.searchLocation = '';
   $scope.radius_filter = '';
@@ -17,10 +19,15 @@ yep.controller('MainController', function($scope, Search, Yelp) {
     Results.success(function(data){
               data.businesses.forEach($scope.parseYelp, $scope);
               $scope.curatedList = $scope.chooseThree($scope.restaurants);
-              console.log($scope.restaurants);
-              console.log($scope.curatedList);
+              $scope.onSearchView = false;
+              // console.log($scope.restaurants);
+              // console.log($scope.curatedList);
             })
           .error(function(err){console.log('error', err);});
+  };
+
+  $scope.reloadSearch = function($window) {
+    window.location.reload(true);
   };
 
   $scope.invalidSubmission = function() {

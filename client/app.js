@@ -6,11 +6,18 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
   // this string represents valid Yelp restaurant categories
   $scope.restaurants = [];
   $scope.curatedList = [];
-  
-  $scope.onSearchView = true;
+  $scope.latitude = '';
+  $scope.longitude = '';
+  navigator.geolocation.getCurrentPosition(function(position){
+    $scope.latitude = position.coords.latitude;
+    $scope.longitude = position.coords.longitude;
+  });
 
+  $scope.onSearchView = true;
+  // cll=latitude,longitude
   $scope.category_filter = '';
   $scope.searchLocation = '';
+  $scope.coordinates = '';
   $scope.radius_filter = '';
   $scope.query = '';
 
@@ -30,8 +37,9 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
     window.location.reload(true);
   };
 
-  $scope.invalidSubmission = function() {
-    return !$scope.category_filter || !$scope.searchLocation || !$scope.radius_filter;
+  $scope.validSubmission = function() {
+    return $scope.category_filter && $scope.radius_filter && 
+    ($scope.searchLocation || ($scope.latitude && $scope.longitude));
   };
 
 })
@@ -106,7 +114,6 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
       var url = 'http://api.yelp.com/v2/search';
       var params = {
         callback: 'angular.callbacks._0',
-        location: this.searchLocation,
         oauth_consumer_key: 'TsnPAO-_aWxaIOg9pINODA', //Consumer Key
         oauth_token: 'rP2sTwBPe2fK8JMnYSx7megW5C4EmJKw', //Token
         oauth_signature_method: "HMAC-SHA1",
@@ -115,11 +122,16 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
         category_filter: this.category_filter,
         radius_filter: this.radius_filter
       };
+      if (this.searchLocation) { 
+        params.location = this.searchLocation; 
+      } else if (this.latitude && this.longitude) {
+        params.ll = this.latitude + ',' + this.longitude;
+      }
       var consumerSecret = 'lIppVhaecKJLupkZ1hoj_iXp70E'; //Consumer Secret
       var tokenSecret = '2Zri1ev2NoRkoQw9GCpDh1VFqFI'; //Token Secret
       var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
       params.oauth_signature = signature;
-      // console.log(params);
+      console.log(params);
       return $http.jsonp(url, {params: params});
     }
 

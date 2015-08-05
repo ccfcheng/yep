@@ -16,13 +16,17 @@
     <div ng-show="onSearchView" class="searchArea">
       <div class="pure-g">
         <div class="pure-u-1 heading">What do you want?</div>
+        <div ng-repeat="pair in choices" ng-class="{'selected':category_filter===pair[1]}" class="pure-u-1-3 pure-u-sm-1-5 options" ng-click="setCategory(pair[1])">{{ pair[0] }}</div>
+      </div>
+      <!-- <div class="pure-g">
+        <div class="pure-u-1 heading">What do you want?</div>
         <div ng-class="{selected: category_filter==='newamerican'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'newamerican'"><img class="pure-img" src="assets/burger.png"></div>
         <div ng-class="{selected: category_filter==='italian'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'italian'"><img class="pure-img" src="assets/italian.png"></div>
         <div ng-class="{selected: category_filter==='japanese'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'japanese'"><img class="pure-img" src="assets/sushi.png"></div>
         <div ng-class="{selected: category_filter==='mexican'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'mexican'"><img class="pure-img" src="assets/taco.png"></div>
         <div ng-class="{selected: category_filter==='vegetarian'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'vegetarian'"><img class="pure-img" src="assets/carrot.png"></div>
         <div ng-class="{selected: category_filter==='breakfast_brunch'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'breakfast_brunch'"><img class="pure-img" src="assets/pancakes.png"></div>
-      </div>
+      </div> -->
 
       <div class="pure-g">
 
@@ -42,6 +46,7 @@
           </form>
           <div class="center">
             <button ng-show="validSubmission()" ng-click="queryYelp()">Find Restaurants</button>
+            <!-- <button ng-click="queryYelp()">Find Restaurants</button> -->
           </div>
           <div class="footer">Powered by <img src="assets/yelp_logo_40x20.png"></div>
         </div>

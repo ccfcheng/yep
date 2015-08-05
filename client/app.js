@@ -3,7 +3,8 @@ var yep = angular.module('yep', []);
 yep.controller('MainController', function($scope, $window, Search, Yelp) {
   angular.extend($scope, Search);
   angular.extend($scope, Yelp);
-  // this string represents valid Yelp restaurant categories
+  
+
   $scope.restaurants = [];
   $scope.curatedList = [];
   $scope.latitude = '';
@@ -24,6 +25,44 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
   $scope.radius_filter = '';
   $scope.query = '';
 
+  $scope.choices = [
+    ['American','newamerican'],
+    // ['American (Trad)','tradamerican'],
+    ['Asian Fusion','asianfusion'],
+    ['BBQ','bbq'],
+    ['Breakfast','breakfast_brunch'],
+    ['Burgers','burgers'],
+    ['Cafes','cafes'],
+    ['Chinese','chinese'],
+    ['Diners','diners'],
+    ['Ethiopian','ethiopian'],
+    ['Food Stands','foodstands'],
+    ['French','french'],
+    ['Gastropubs','gastropubs'],
+    ['Gluten Free','gluten_free'],
+    ['Greek','greek'],
+    ['Halal','halal'],
+    ['Hawaiian','hawaiian'],
+    ['Indian','indpak'],
+    ['Italian','italian'],
+    ['Japanese','japanese'],
+    ['Korean','korean'],
+    ['Mediterranean','mediterranean'],
+    ['Mexican','mexican'],
+    ['Middle Eastern','mideastern'],
+    ['Pizza','pizza'],
+    ['Ramen','ramen'],
+    ['Salad','salad'],
+    ['Sandwiches','sandwiches'],
+    ['Seafood','seafood'],
+    ['Steak','steak'],
+    ['Tapas','tapas'],
+    ['Thai','thai'],
+    // ['Vegan','vegan'],
+    ['Vegetarian','vegetarian'],
+    ['Vietnamese','vietnamese']
+  ];
+
   $scope.queryYelp = function() {
     var Results = this.retrieve();
     Results.success(function(data){
@@ -31,9 +70,9 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
               $scope.curatedList = $scope.chooseThree($scope.restaurants);
               $scope.onSearchView = false;
               $scope.numResults = $scope.curatedList.length > 0 ? true : false;
-              console.log('numResults is', $scope.numResults);
-              console.log($scope.restaurants);
-              console.log($scope.curatedList);
+              // console.log('numResults is', $scope.numResults);
+              // console.log($scope.restaurants);
+              // console.log($scope.curatedList);
             })
           .error(function(err){console.log('error', err);});
   };
@@ -41,6 +80,10 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
   $scope.reloadSearch = function($window) {
     window.location.reload(true);
   };
+
+  $scope.setCategory = function(term) {
+    $scope.category_filter = term;
+  }
 
   $scope.validSubmission = function() {
     return $scope.category_filter && $scope.radius_filter && 
@@ -51,10 +94,6 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
 
 .factory('Search', function(){
   return {
-    // appends a category term to Yelp's category search syntax
-    setCategory: function(term) {
-      this.category_filter = term;
-    },
     // appends a location term to Yelp's location search syntax
     setLocation: function() {
       this.searchLocation = this.currentLocation;

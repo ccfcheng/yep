@@ -9,14 +9,25 @@
 .display {
   background-color: #eee;
 }*/
+.options {
+  margin: 4px 0px;
+}
+
+/*.options:hover {
+  text-shadow: 1px 1px 1px #c00;
+}*/
 
 .pure-img {
   width: 40%;
   margin: 10px auto;
 }
 
-.selected, .transportation {
-  background-color: #ccc;
+.transportation {
+  background-color: #c00;
+}
+
+.selected {
+  text-shadow: 1px 1px 1px #c00;
 }
 
 .heading {

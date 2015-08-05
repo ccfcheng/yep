@@ -30,8 +30,10 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
               data.businesses.forEach($scope.parseYelp, $scope);
               $scope.curatedList = $scope.chooseThree($scope.restaurants);
               $scope.onSearchView = false;
-              // console.log($scope.restaurants);
-              // console.log($scope.curatedList);
+              $scope.numResults = $scope.curatedList.length > 0 ? true : false;
+              console.log('numResults is', $scope.numResults);
+              console.log($scope.restaurants);
+              console.log($scope.curatedList);
             })
           .error(function(err){console.log('error', err);});
   };
@@ -76,6 +78,9 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
 
     chooseThree: function(array) {
       var result = [];
+      if (array.length <= 3) {
+        return array;
+      }
       while (result.length < 3) {
         var i = Math.floor(Math.random() * array.length);
         result.push(array.splice(i,1)[0]);

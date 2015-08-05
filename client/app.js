@@ -8,9 +8,12 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
   $scope.curatedList = [];
   $scope.latitude = '';
   $scope.longitude = '';
+  $scope.coordString = '';
+
   navigator.geolocation.getCurrentPosition(function(position){
     $scope.latitude = position.coords.latitude;
     $scope.longitude = position.coords.longitude;
+    $scope.coordString = $scope.latitude + ',' + $scope.longitude;
   });
 
   $scope.onSearchView = true;

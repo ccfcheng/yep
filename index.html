@@ -38,7 +38,7 @@
         <div class="pure-u-md-1-2 pure-u-1">
           <div ng-show="!latitude && !longitude" class="pure-u-1 heading">Where are you now?</div>
           <form ng-show="!latitude && !longitude" class="pure-form">
-            <input class="pure-input-1 pure-input-rounded" type="text" ng-model="searchLocation" placeholder="Enter an address for best results">
+            <input class="pure-input-1 pure-input-rounded" type="text" ng-model="searchLocation" placeholder="Enter address if location is not available">
           </form>
           <div class="center">
             <button ng-show="validSubmission()" ng-click="queryYelp()">Find Restaurants</button>
@@ -64,7 +64,7 @@
             <div class="phone"><a ng-href="tel://{{item.phone}}">{{ item.phone }}</a></div>
           </div>
           <div class="pure-u-1 pure-u-sm-2-5 address">
-            <a ng-href="https://www.google.com/maps/dir/{{ searchLocation }}/{{ item.address.join(' ') }}">
+            <a ng-href="https://www.google.com/maps/dir/{{ searchLocation || coordString }}/{{ item.address.join(' ') }}">
               <div ng-repeat="line in item.address">{{ line }}</div>
             </a>
           </div>

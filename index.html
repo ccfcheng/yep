@@ -12,51 +12,55 @@
   </head>
 
   <body ng-controller="MainController">
-    <div ng-show="onSearchView" class="main-heading">yep!</div>
-    <div ng-show="onSearchView" class="searchArea">
-      <div class="pure-g">
-        <div class="pure-u-1 heading">What do you want?</div>
-        <div ng-repeat="pair in choices" ng-class="{'selected':category_filter===pair[1]}" class="pure-u-1-3 pure-u-sm-1-5 options" ng-click="setCategory(pair[1])">{{ pair[0] }}</div>
-      </div>
-      <!-- <div class="pure-g">
-        <div class="pure-u-1 heading">What do you want?</div>
-        <div ng-class="{selected: category_filter==='newamerican'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'newamerican'"><img class="pure-img" src="assets/burger.png"></div>
-        <div ng-class="{selected: category_filter==='italian'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'italian'"><img class="pure-img" src="assets/italian.png"></div>
-        <div ng-class="{selected: category_filter==='japanese'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'japanese'"><img class="pure-img" src="assets/sushi.png"></div>
-        <div ng-class="{selected: category_filter==='mexican'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'mexican'"><img class="pure-img" src="assets/taco.png"></div>
-        <div ng-class="{selected: category_filter==='vegetarian'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'vegetarian'"><img class="pure-img" src="assets/carrot.png"></div>
-        <div ng-class="{selected: category_filter==='breakfast_brunch'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'breakfast_brunch'"><img class="pure-img" src="assets/pancakes.png"></div>
-      </div> -->
-
-      <div class="pure-g">
-
-        <div class="pure-u-md-1-2 pure-u-1">
-          <div class="pure-g">
-            <div class="pure-u-1 heading">How will you go?</div>
-            <div ng-class="{transportation: radius_filter==='800'}" class="pure-u-md-1-3 pure-u-sm-1-3 pure-u-1-3" ng-click="setRadius(1)"><img class="pure-img" src="assets/walk.png"></div>
-            <div ng-class="{transportation: radius_filter==='1600'}" class="pure-u-md-1-3 pure-u-sm-1-3 pure-u-1-3" ng-click="setRadius(2)"><img class="pure-img" src="assets/bike.png"></div>
-            <div ng-class="{transportation: radius_filter==='4000'}" class="pure-u-md-1-3 pure-u-sm-1-3 pure-u-1-3" ng-click="setRadius(5)"><img class="pure-img" src="assets/car.png"></div>
-          </div>
+    <div class="pure-g">
+      <div ng-show="onSearchView" class="main-heading pure-u-1-2 left" ng-click="setBasic()">yep!</div>
+      <div ng-show="onSearchView" class="main-heading pure-u-1-2 right" ng-click="setAdvanced()">more!</div>
+      <div ng-show="onSearchView" class="searchArea">
+        <div class="pure-g" ng-show="moreOptions">
+          <div class="pure-u-1 heading">What do you want?</div>
+          <div ng-repeat="pair in choices" ng-class="{'chosen':category_filter===pair[1]}" class="pure-u-1-3 pure-u-sm-1-5 options" ng-click="setCategory(pair[1])">{{ pair[0] }}</div>
+        </div>
+        <div class="pure-g" ng-show="!moreOptions">
+          <div class="pure-u-1 heading">What do you want?</div>
+          <div ng-class="{'selected': category_filter==='newamerican'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'newamerican'"><img class="pure-img" src="assets/burger.png"></div>
+          <div ng-class="{'selected': category_filter==='italian'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'italian'"><img class="pure-img" src="assets/italian.png"></div>
+          <div ng-class="{'selected': category_filter==='japanese'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'japanese'"><img class="pure-img" src="assets/sushi.png"></div>
+          <div ng-class="{'selected': category_filter==='mexican'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'mexican'"><img class="pure-img" src="assets/taco.png"></div>
+          <div ng-class="{'selected': category_filter==='vegetarian'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'vegetarian'"><img class="pure-img" src="assets/carrot.png"></div>
+          <div ng-class="{'selected': category_filter==='breakfast_brunch'}" class="pure-u-1-2 pure-u-sm-1-3 pure-u-md-1-6" ng-click="category_filter = 'breakfast_brunch'"><img class="pure-img" src="assets/pancakes.png"></div>
         </div>
 
-        <div class="pure-u-md-1-2 pure-u-1">
-          <div ng-show="!latitude && !longitude" class="pure-u-1 heading">Where are you now?</div>
-          <form ng-show="!latitude && !longitude" class="pure-form">
-            <input class="pure-input-1 pure-input-rounded" type="text" ng-model="searchLocation" placeholder="Enter address if location is not available">
-          </form>
-          <div class="center">
-            <button ng-show="validSubmission()" ng-click="queryYelp()">Find Restaurants</button>
-            <!-- <button ng-click="queryYelp()">Find Restaurants</button> -->
+        <div class="pure-g">
+
+          <div class="pure-u-md-1-2 pure-u-1">
+            <div class="pure-g">
+              <div class="pure-u-1 heading">How will you go?</div>
+              <div ng-class="{transportation: radius_filter==='800'}" class="pure-u-md-1-3 pure-u-sm-1-3 pure-u-1-3" ng-click="setRadius(1)"><img class="pure-img" src="assets/walk.png"></div>
+              <div ng-class="{transportation: radius_filter==='2400'}" class="pure-u-md-1-3 pure-u-sm-1-3 pure-u-1-3" ng-click="setRadius(3)"><img class="pure-img" src="assets/bike.png"></div>
+              <div ng-class="{transportation: radius_filter==='4800'}" class="pure-u-md-1-3 pure-u-sm-1-3 pure-u-1-3" ng-click="setRadius(6)"><img class="pure-img" src="assets/car.png"></div>
+            </div>
           </div>
-          <div class="footer">Powered by <img src="assets/yelp_logo_40x20.png"></div>
+
+          <div class="pure-u-md-1-2 pure-u-1">
+            <div ng-show="!hasCoords" class="pure-u-1 heading">Where are you now?</div>
+            <form ng-show="!hasCoords" class="pure-form">
+              <input class="pure-input-1 pure-input-rounded" type="text" ng-model="searchLocation" placeholder="Enter address if location is not available">
+            </form>
+            <div class="center">
+              <button ng-show="validSubmission()" ng-click="queryYelp()">Find Restaurants</button>
+              <!-- <button ng-click="queryYelp()">Find Restaurants</button> -->
+            </div>
+            <div class="footer">Powered by <img src="assets/yelp_logo_40x20.png"></div>
+          </div>
+
         </div>
 
       </div>
-
     </div>
+
     <div ng-show="!onSearchView" class="display pure-g">
       <hr class="pure-u-1">
-      <div class="pure-u-md-1-3 pure-u-sm-1" ng-repeat="item in curatedList">
+      <div class="pure-u-md-1-3 pure-u-sm-1 pure-u-1" ng-repeat="item in curatedList">
         <div class="pure-g">
           <div class="pure-u-1 name">{{ item.name }}</div>
           <div class="pure-u-2-5 picture"><img ng-src="{{ item.imageURL }}"></div>
@@ -74,11 +78,14 @@
         </div>
         <hr class="pure-u-1">
       </div>
-      <div ng-show="!numResults">
-        <div  class="pure-u-1 center">No restaurants were found that match your search. Try again!</div>
-        <hr class="pure-u-1">
+      <div ng-show="!numResults" class="pure-g">
+        <div class="pure-u-1 center">No restaurants were found that match your search. Try again!</div>
+        <hr class="pure-u-1 center">
       </div>
-      <div class="pure-u-1 center">
+      <div class="pure-u-1-2 center">
+        <button ng-click="makeCurated()">More Results</button>
+      </div>
+      <div class="pure-u-1-2 center">
         <button ng-click="reloadSearch()">New Search</button>
       </div>
     </div>

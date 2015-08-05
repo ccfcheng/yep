@@ -11,13 +11,19 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
   $scope.longitude = '';
   $scope.coordString = '';
 
+  $scope.hasCoords = false;
+
   navigator.geolocation.getCurrentPosition(function(position){
     $scope.latitude = position.coords.latitude;
     $scope.longitude = position.coords.longitude;
-    $scope.coordString = $scope.latitude + ',' + $scope.longitude;
+    if ($scope.latitude && $scope.longitude) {
+      $scope.coordString = $scope.latitude + ',' + $scope.longitude;
+      $scope.hasCoords = true;
+    }
   });
 
   $scope.onSearchView = true;
+  $scope.moreOptions = false;
   // cll=latitude,longitude
   $scope.category_filter = '';
   $scope.searchLocation = '';
@@ -67,7 +73,7 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
     var Results = this.retrieve();
     Results.success(function(data){
               data.businesses.forEach($scope.parseYelp, $scope);
-              $scope.curatedList = $scope.chooseThree($scope.restaurants);
+              $scope.makeCurated();
               $scope.onSearchView = false;
               $scope.numResults = $scope.curatedList.length > 0 ? true : false;
               // console.log('numResults is', $scope.numResults);
@@ -77,6 +83,10 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
           .error(function(err){console.log('error', err);});
   };
 
+  $scope.makeCurated = function() {
+    $scope.curatedList = $scope.chooseThree($scope.restaurants);
+  };
+
   $scope.reloadSearch = function($window) {
     window.location.reload(true);
   };
@@ -84,6 +94,9 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
   $scope.setCategory = function(term) {
     $scope.category_filter = term;
   }
+
+  $scope.setBasic = function() { $scope.moreOptions = false; }
+  $scope.setAdvanced = function() { $scope.moreOptions = true; }
 
   $scope.validSubmission = function() {
     return $scope.category_filter && $scope.radius_filter && 
@@ -139,8 +152,8 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
         address: business.location.display_address
         // http://maps.google.com/?q=term (term should be address.join(' '))
       };
-      // only push to array if 3.5 stars and above
-      if (obj.rating >= 3.5) { this.restaurants.push(obj); }
+      // only push to array if 3 stars and above
+      if (obj.rating >= 3) { this.restaurants.push(obj); }
       // console.log(obj.address);
     },
 

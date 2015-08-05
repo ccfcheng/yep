@@ -9,12 +9,20 @@
 .display {
   background-color: #eee;
 }*/
+
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+
 .options {
   margin: 4px 0px;
 }
 
 /*.options:hover {
-  text-shadow: 1px 1px 1px #c00;
+  text-shadow: 1px 1px 1px #d00;
 }*/
 
 .pure-img {
@@ -22,12 +30,12 @@
   margin: 10px auto;
 }
 
-.transportation {
-  background-color: #c00;
+.selected, .transportation {
+  box-shadow: inset 0px 0px 20px #d00;
 }
 
-.selected {
-  text-shadow: 1px 1px 1px #c00;
+.chosen {
+  text-shadow: 1px 1px 1px #d00;
 }
 
 .heading {
@@ -39,11 +47,10 @@
 }
 
 .main-heading {
-  text-align: center;
   font-weight: bold;
   font-style: italic;
   font-size: 1.5em;
-  text-shadow: 2px 2px 2px #c00;
+  text-shadow: 2px 2px 1px #d00;
 }
 
 .footer {

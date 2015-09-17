@@ -175,7 +175,7 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
       var params = {
         callback: 'angular.callbacks._0',
         oauth_consumer_key: 'TsnPAO-_aWxaIOg9pINODA', //Consumer Key
-        oauth_token: 'rP2sTwBPe2fK8JMnYSx7megW5C4EmJKw', //Token
+        oauth_token: 'hxSCofJo7YX-qO8vtoZadSit0dJgKJSc', //Token
         oauth_signature_method: "HMAC-SHA1",
         oauth_timestamp: new Date().getTime(),
         oauth_nonce: this.randomGen(32),
@@ -188,7 +188,7 @@ yep.controller('MainController', function($scope, $window, Search, Yelp) {
         params.ll = this.latitude + ',' + this.longitude;
       }
       var consumerSecret = 'lIppVhaecKJLupkZ1hoj_iXp70E'; //Consumer Secret
-      var tokenSecret = '2Zri1ev2NoRkoQw9GCpDh1VFqFI'; //Token Secret
+      var tokenSecret = 'b5-VDa5hgiuph2LUT6JtyojOmIk'; //Token Secret
       var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
       params.oauth_signature = signature;
       console.log(params);
